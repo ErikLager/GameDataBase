@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml" fx:controller="com.mycompany.gamedatabase.FXMLController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField id="game_field" layoutX="226.0" layoutY="62.0" text="Game" />
+      <TextField id="platform_field" layoutX="226.0" layoutY="87.0" text="Platform" />
+      <TextField id="dev_field" layoutX="226.0" layoutY="112.0" text="Developer" />
+      <TextField id="pub_field" layoutX="226.0" layoutY="137.0" text="Publisher" />
+      <TextField id="mscore_field" layoutX="226.0" layoutY="162.0" text="My Score" />
+      <TextField id="cscore_field" layoutX="226.0" layoutY="188.0" text="Critics Score" />
+      <TextField id="year_field" layoutX="226.0" layoutY="213.0" text="Year of Release" />
+      <Text layoutX="243.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a game" wrappingWidth="113.3359375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <ListView id="listview" layoutX="17.0" layoutY="252.0" prefHeight="375.0" prefWidth="566.0" />
+   </children>
+</Pane>
