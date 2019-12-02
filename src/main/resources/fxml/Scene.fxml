@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gamedatabase.FXMLController">
    <children>
-      <TextField id="game_field" layoutX="226.0" layoutY="62.0" text="Game" />
-      <TextField id="platform_field" layoutX="226.0" layoutY="87.0" text="Platform" />
-      <TextField id="dev_field" layoutX="226.0" layoutY="112.0" text="Developer" />
-      <TextField id="pub_field" layoutX="226.0" layoutY="137.0" text="Publisher" />
-      <TextField id="mscore_field" layoutX="226.0" layoutY="162.0" text="My Score" />
-      <TextField id="cscore_field" layoutX="226.0" layoutY="188.0" text="Critics Score" />
-      <TextField id="year_field" layoutX="226.0" layoutY="213.0" text="Year of Release" />
-      <Text layoutX="243.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a game" wrappingWidth="113.3359375">
+      <TextField id="game_field" fx:id="game" layoutX="17.0" layoutY="180.0" text="Game" />
+      <TextField id="platform_field" fx:id="Platform" layoutX="17.0" layoutY="230.0" text="Platform" />
+      <TextField id="dev_field" fx:id="Dev" layoutX="17.0" layoutY="280.0" text="Developer" />
+      <TextField id="pub_field" fx:id="Pub" layoutX="17.0" layoutY="330.0" text="Publisher" />
+      <TextField id="mscore_field" fx:id="MScore" layoutX="17.0" layoutY="370.0" text="My Score" />
+      <TextField id="cscore_field" fx:id="CScore" layoutX="17.0" layoutY="420.0" text="Critics Score" />
+      <TextField id="year_field" fx:id="Year" layoutX="17.0" layoutY="470.0" text="Year of Release" />
+      <Text layoutX="31.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a game" wrappingWidth="113.3359375">
          <font>
-            <Font size="20.0" />
+            <Font size="41.0" />
          </font>
       </Text>
-      <ListView id="listview" layoutX="17.0" layoutY="252.0" prefHeight="375.0" prefWidth="566.0" />
+      <ListView id="listview" fx:id="listView" layoutX="185.0" layoutY="20.0" prefHeight="652.0" prefWidth="400.0" />
+      <Button id="AddGameId" fx:id="AddGameButton" layoutX="19.0" layoutY="503.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="86.0" prefWidth="145.0" text="Add Game" textAlignment="CENTER">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
+      <Button fx:id="Showgames" layoutX="19.0" layoutY="596.0" mnemonicParsing="false" onAction="#ShowGames" prefHeight="86.0" prefWidth="145.0" text="List Games">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

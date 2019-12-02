@@ -13,6 +13,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mainClass>com.mycompany.gamedatabase.MainApp</mainClass>
     </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.48</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 
     <organization>
         <!-- Used as the 'Vendor' for JNLP generation -->
