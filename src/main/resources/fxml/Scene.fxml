@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gamedatabase.FXMLController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="929.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gamedatabase.FXMLController">
    <children>
       <TextField id="game_field" fx:id="game" layoutX="17.0" layoutY="180.0" text="Game" />
       <TextField id="platform_field" fx:id="Platform" layoutX="17.0" layoutY="230.0" text="Platform" />
@@ -20,7 +20,6 @@
             <Font size="41.0" />
          </font>
       </Text>
-      <ListView id="listview" fx:id="listView" layoutX="185.0" layoutY="20.0" prefHeight="652.0" prefWidth="400.0" />
       <Button id="AddGameId" fx:id="AddGameButton" layoutX="19.0" layoutY="503.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="86.0" prefWidth="145.0" text="Add Game" textAlignment="CENTER">
          <font>
             <Font size="23.0" />
@@ -31,5 +30,13 @@
             <Font size="23.0" />
          </font>
       </Button>
+      <TextArea fx:id="textArea" layoutX="185.0" layoutY="41.0" prefHeight="374.0" prefWidth="407.0" />
+      <TextArea fx:id="Dev_text_area" layoutX="185.0" layoutY="481.0" prefHeight="200.0" prefWidth="407.0" />
+      <Text layoutX="361.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developers" />
+      <TextArea fx:id="Platform_text_area" layoutX="19.0" layoutY="726.0" prefHeight="172.0" prefWidth="256.0" />
+      <TextArea fx:id="Pub_text_area" layoutX="330.0" layoutY="726.0" prefHeight="172.0" prefWidth="256.0" />
+      <Text layoutX="434.0" layoutY="712.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publishers" />
+      <Text layoutX="124.0" layoutY="712.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Platforms" />
+      <Text layoutX="370.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" />
    </children>
 </Pane>

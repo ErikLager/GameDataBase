@@ -5,12 +5,18 @@
  */
 package com.mycompany.gamedatabase;
 
+import com.mycompany.gamedatabase.enteties.Dev;
 import com.mycompany.gamedatabase.enteties.Game;
+import com.mycompany.gamedatabase.enteties.Platform;
+import com.mycompany.gamedatabase.enteties.Pub;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.xml.transform.Result;
 
 /**
@@ -18,13 +24,14 @@ import javax.xml.transform.Result;
  * @author Te41905
  */
 public class DataBaseHandler {
-    public List<Game> getGames(){
+
+    public ObservableList<Game> getGames() {
         List<Game> games = new ArrayList<>();
-        try (Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             String sql = "SELECT * FROM `games`";
             ResultSet data = stmt.executeQuery(sql);
-            while (data.next()){
+            while (data.next()) {
                 int Id = data.getInt("Id");
                 String Namn = data.getString("Name");
                 int Platform_Id = data.getInt("Platform_Id");
@@ -33,16 +40,72 @@ public class DataBaseHandler {
                 int CScore = data.getInt("CScore");
                 int MScore = data.getInt("MScore");
                 int Year = data.getInt("Year");
-                Game game = new Game (Id, Namn, Platform_Id, Dev_Id, 
-                Pub_Id, CScore, MScore, Year);
+                Game game = new Game(Id, Namn, Platform_Id, Dev_Id,
+                        Pub_Id, CScore, MScore, Year);
                 games.add(game);
-                
             }
         } catch (Exception e) {
-            System.out.println("Error in 'getGames();': "+e.getMessage());
+            System.out.println("Error in 'getGames();': " + e.getMessage());
         }
-        return games;
+        ObservableList<Game> observablegames = FXCollections.observableList(games);
+        return observablegames;
     }
+    
+    public ObservableList<Dev> getDev(){
+        List<Dev> devs = new ArrayList<>();
+        try (Connection connection = ConnectionFactory.getConnection()){
+            Statement stmt = connection.createStatement();
+            String sql = "SELECT * FROM `developer`";
+            ResultSet data = stmt.executeQuery(sql);
+            while(data.next()){
+                int Id = data.getInt("Id");
+                String Namn = data.getString("DevName");
+                Dev dev = new Dev(Id, Namn);
+                devs.add(dev);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in 'getDev();': " + e.getMessage());
+        }
+        ObservableList<Dev> observableDevs = FXCollections.observableList(devs);
+        return observableDevs;
+    }
+    public ObservableList<Pub> getPub(){
+        List <Pub> publ = new ArrayList<>();
+        try (Connection connection = ConnectionFactory.getConnection()){
+            Statement stmt = connection.createStatement();
+            String sql = "SELECT * FROM `publisher`";
+            ResultSet data = stmt.executeQuery(sql);
+            while (data.next()){
+                int Id = data.getInt("Id");
+                String Namn = data.getString("PubName");
+                Pub pub = new Pub (Id, Namn);
+                publ.add(pub);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in getPub: "+e.getMessage());
+        }
+        ObservableList<Pub> observablePub = FXCollections.observableList(publ);
+        return observablePub;
+    }
+    public  ObservableList<Platform> getPlat(){
+        List <Platform> platform = new ArrayList<>();
+        try (Connection connection = ConnectionFactory.getConnection()){
+            Statement stmt = connection.createStatement();
+            String sql ="SELECT * FROM `Platform`";
+            ResultSet data = stmt.executeQuery(sql);
+            while (data.next()){
+                int Id = data.getInt("Id");
+                String Namn = data.getString("PlatformName");
+                Platform plat = new Platform (Id, Namn);
+                platform.add(plat);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in getPlat: "+e.getMessage());
+        }
+        ObservableList<Platform> observablePublisher = FXCollections.observableList(platform);
+        return observablePublisher;
+    }
+            
 //    public Game getGame (int id, String name, int Dev_Id, int Pub_Id, int CScore, int MScore, int Year){
 //        Game game = new Game(id, name, Dev_Id, int Pub_Id, int CScore, int MScore, int Year);
 //        try (Connection connection = ConnectionFactory.getConnection()){

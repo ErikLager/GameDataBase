@@ -7,35 +7,44 @@ package com.mycompany.gamedatabase.enteties;
 
 /**
  *
- * @author Te41905
+ * @author L
  */
 public class Game {
     private int id;
     private String name;
-    private int Platform_Id;
-    private int Dev_Id;
-    private int Pub_Id;
-    private int CScore;
-    private int MScore;
-    private int Year;
+    private int platformID;
+    private int devId;
+    private int pubId;
+    private int cScore;
+    private int mScore;
+    private int year;
 
-    public Game(int id, String name, int Platform_Id, int Dev_Id, int Pub_Id, int CScore, int MScore, int Year) {
+    @Override
+    public String toString() {
+        return String.format("%s Year of Release: %d \n "
+                + "My score: %d Critics score: %d \n Platform: %d "
+                + "Developer: %d. Publisher: %d \n", 
+                name,year,mScore,cScore,platformID, devId, pubId);
+       // return "Game{" + "id=" + id + ", name=" + name + ", platformID=" + platformID + ", devId=" + devId + ", pubId=" + pubId + ", cScore=" + cScore + ", mScore=" + mScore + ", Year=" + Year + '}';
+    }
+
+    public Game(int id, String name, int Platform_Id, int Dev_Id, int Pub_Id, int CScore, int MScore, int year) {
         this.id = id;
         this.name = name;
-        this.Platform_Id = Platform_Id;
-        this.Dev_Id = Dev_Id;
-        this.Pub_Id = Pub_Id;
-        this.CScore = CScore;
-        this.MScore = MScore;
-        this.Year = Year;
+        this.platformID = Platform_Id;
+        this.devId = Dev_Id;
+        this.pubId = Pub_Id;
+        this.cScore = CScore;
+        this.mScore = MScore;
+        this.year = year;
     }
 
     public int getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(int Year) {
-        this.Year = Year;
+        this.year = Year;
     }
 
     public int getId() {
@@ -54,43 +63,43 @@ public class Game {
         this.name = name;
     }
 
-    public int getPlatform_Id() {
-        return Platform_Id;
+    public int getPlatformID() {
+        return platformID;
     }
 
-    public void setPlatform_Id(int Platform_Id) {
-        this.Platform_Id = Platform_Id;
+    public void setPlatformID(int platformID) {
+        this.platformID = platformID;
     }
 
-    public int getDev_Id() {
-        return Dev_Id;
+    public int getDevId() {
+        return devId;
     }
 
-    public void setDev_Id(int Dev_Id) {
-        this.Dev_Id = Dev_Id;
+    public void setDevId(int devId) {
+        this.devId = devId;
     }
 
-    public int getPub_Id() {
-        return Pub_Id;
+    public int getPubId() {
+        return pubId;
     }
 
-    public void setPub_Id(int Pub_Id) {
-        this.Pub_Id = Pub_Id;
+    public void setPubId(int pubId) {
+        this.pubId = pubId;
     }
 
-    public int getCScore() {
-        return CScore;
+    public int getcScore() {
+        return cScore;
     }
 
-    public void setCScore(int CScore) {
-        this.CScore = CScore;
+    public void setcScore(int cScore) {
+        this.cScore = cScore;
     }
 
-    public int getMScore() {
-        return MScore;
+    public int getmScore() {
+        return mScore;
     }
 
-    public void setMScore(int MScore) {
-        this.MScore = MScore;
+    public void setmScore(int mScore) {
+        this.mScore = mScore;
     }
 }
