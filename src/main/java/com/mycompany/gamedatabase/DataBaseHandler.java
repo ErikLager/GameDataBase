@@ -14,10 +14,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javax.xml.transform.Result;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  *
@@ -25,6 +25,10 @@ import javax.xml.transform.Result;
  */
 public class DataBaseHandler {
 
+    /**
+     *
+     * @return
+     */
     public ObservableList<Game> getGames() {
         List<Game> games = new ArrayList<>();
         try (Connection connection = ConnectionFactory.getConnection()) {
@@ -50,14 +54,18 @@ public class DataBaseHandler {
         ObservableList<Game> observablegames = FXCollections.observableList(games);
         return observablegames;
     }
-    
-    public ObservableList<Dev> getDev(){
+
+    /**
+     *
+     * @return
+     */
+    public ObservableList<Dev> getDev() {
         List<Dev> devs = new ArrayList<>();
-        try (Connection connection = ConnectionFactory.getConnection()){
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             String sql = "SELECT * FROM `developer`";
             ResultSet data = stmt.executeQuery(sql);
-            while(data.next()){
+            while (data.next()) {
                 int Id = data.getInt("Id");
                 String Namn = data.getString("DevName");
                 Dev dev = new Dev(Id, Namn);
@@ -69,65 +77,76 @@ public class DataBaseHandler {
         ObservableList<Dev> observableDevs = FXCollections.observableList(devs);
         return observableDevs;
     }
-    public ObservableList<Pub> getPub(){
-        List <Pub> publ = new ArrayList<>();
-        try (Connection connection = ConnectionFactory.getConnection()){
+
+    /**
+     *
+     * @return
+     */
+    public ObservableList<Pub> getPub() {
+        List<Pub> publ = new ArrayList<>();
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             String sql = "SELECT * FROM `publisher`";
             ResultSet data = stmt.executeQuery(sql);
-            while (data.next()){
+            while (data.next()) {
                 int Id = data.getInt("Id");
                 String Namn = data.getString("PubName");
-                Pub pub = new Pub (Id, Namn);
+                Pub pub = new Pub(Id, Namn);
                 publ.add(pub);
             }
         } catch (Exception e) {
-            System.out.println("Error in getPub: "+e.getMessage());
+            System.out.println("Error in getPub: " + e.getMessage());
         }
         ObservableList<Pub> observablePub = FXCollections.observableList(publ);
         return observablePub;
     }
-    public  ObservableList<Platform> getPlat(){
-        List <Platform> platform = new ArrayList<>();
-        try (Connection connection = ConnectionFactory.getConnection()){
+
+    /**
+     *
+     * @return
+     */
+    public ObservableList<Platform> getPlat() {
+        List<Platform> platform = new ArrayList<>();
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
-            String sql ="SELECT * FROM `Platform`";
+            String sql = "SELECT * FROM `Platform`";
             ResultSet data = stmt.executeQuery(sql);
-            while (data.next()){
+            while (data.next()) {
                 int Id = data.getInt("Id");
                 String Namn = data.getString("PlatformName");
-                Platform plat = new Platform (Id, Namn);
+                Platform plat = new Platform(Id, Namn);
                 platform.add(plat);
             }
         } catch (Exception e) {
-            System.out.println("Error in getPlat: "+e.getMessage());
+            System.out.println("Error in getPlat: " + e.getMessage());
         }
         ObservableList<Platform> observablePublisher = FXCollections.observableList(platform);
         return observablePublisher;
     }
-            
-//    public Game getGame (int id, String name, int Dev_Id, int Pub_Id, int CScore, int MScore, int Year){
-//        Game game = new Game(id, name, Dev_Id, int Pub_Id, int CScore, int MScore, int Year);
-//        try (Connection connection = ConnectionFactory.getConnection()){
-//            String sql = "SELECT * FROM `games` WHERE id = " +id;
-//            Statement stmt = connection.prepareStatement(sql);
-//            System.out.println(sql);
-//            ResultSet data = stmt.executeQuery(sql);
-//            while (data.next()){
-//                int Id = data.getInt("Id");
-//                String Namn = data.getString("Namn");
-//                int Platform_Id = data.getInt("Platform_Id");
-//                int Dev_Id = data.getInt("Dev_Id");
-//                int Pub_Id = data.getInt("Pub_Id");
-//                int CScore = data.getInt("CScore");
-//                int MScore = data.getInt("MScore");
-//                int Year = data.getInt("Year");
-//                game = new Game (Id, Namn, Platform_Id, Dev_Id, 
-//                Pub_Id, CScore, MScore, Year);
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Eroor in getGame: "+e.getMessage());
-//        }
-//        return game;
-//    }
+
+    /**
+     *
+     * @param game
+     * @return
+     */
+    public int addGame(Game game) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            Statement stmt = connection.createStatement();
+            String sql = String.format("INSERT INTO games VALUES "
+                    + "('%d', '%s', '%d', '%d', '%d', '%d', '%d', '%d' )",
+                    game.getId(),game.getName(), 
+                    game.getPlatformID(),game.getDevId(), 
+                    game.getPubId(),game.getmScore(), 
+                    game.getcScore(),game.getYear());
+            System.out.println(sql);
+            return stmt.executeUpdate(sql);
+        } catch (Exception e) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Problem, with the database");
+            alert.setContentText("Error: "+e.getMessage());
+            alert.showAndWait();
+        }
+        return 0;
+    }
 }

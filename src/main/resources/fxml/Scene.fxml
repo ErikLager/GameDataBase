@@ -6,37 +6,44 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="929.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gamedatabase.FXMLController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="882.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.gamedatabase.FXMLController">
    <children>
-      <TextField id="game_field" fx:id="game" layoutX="17.0" layoutY="180.0" text="Game" />
-      <TextField id="platform_field" fx:id="Platform" layoutX="17.0" layoutY="230.0" text="Platform" />
-      <TextField id="dev_field" fx:id="Dev" layoutX="17.0" layoutY="280.0" text="Developer" />
-      <TextField id="pub_field" fx:id="Pub" layoutX="17.0" layoutY="330.0" text="Publisher" />
-      <TextField id="mscore_field" fx:id="MScore" layoutX="17.0" layoutY="370.0" text="My Score" />
-      <TextField id="cscore_field" fx:id="CScore" layoutX="17.0" layoutY="420.0" text="Critics Score" />
-      <TextField id="year_field" fx:id="Year" layoutX="17.0" layoutY="470.0" text="Year of Release" />
-      <Text layoutX="31.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a game" wrappingWidth="113.3359375">
+      <TextField id="game_field" fx:id="game" layoutX="122.0" layoutY="96.0" prefHeight="25.0" prefWidth="113.0" promptText="Game" />
+      <TextField id="platform_field" fx:id="Platform" layoutX="122.0" layoutY="146.0" prefHeight="25.0" prefWidth="113.0" promptText="Platform" />
+      <TextField id="dev_field" fx:id="Dev" layoutX="122.0" layoutY="196.0" prefHeight="25.0" prefWidth="113.0" promptText="Developer" />
+      <TextField id="pub_field" fx:id="Pub" layoutX="122.0" layoutY="246.0" prefHeight="25.0" prefWidth="113.0" promptText="Publisher" />
+      <TextField id="mscore_field" fx:id="MScore" layoutX="123.0" layoutY="296.0" prefHeight="25.0" prefWidth="113.0" promptText="My Score" />
+      <TextField id="cscore_field" fx:id="CScore" layoutX="123.0" layoutY="346.0" prefHeight="25.0" prefWidth="113.0" promptText="Critics Score" />
+      <TextField id="year_field" fx:id="Year" layoutX="123.0" layoutY="396.0" prefHeight="25.0" prefWidth="113.0" promptText="Year of Release" />
+      <Text layoutX="17.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a game" wrappingWidth="256.0">
          <font>
             <Font size="41.0" />
          </font>
       </Text>
-      <Button id="AddGameId" fx:id="AddGameButton" layoutX="19.0" layoutY="503.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="86.0" prefWidth="145.0" text="Add Game" textAlignment="CENTER">
+      <Button id="AddGameId" fx:id="AddGameButton" layoutX="18.0" layoutY="462.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="92.0" prefWidth="211.0" text="Add Game" textAlignment="CENTER">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
-      <Button fx:id="Showgames" layoutX="19.0" layoutY="596.0" mnemonicParsing="false" onAction="#ShowGames" prefHeight="86.0" prefWidth="145.0" text="List Games">
+      <Button fx:id="Showgames" layoutX="18.0" layoutY="570.0" mnemonicParsing="false" onAction="#ShowGames" prefHeight="92.0" prefWidth="211.0" text="List Games">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
-      <TextArea fx:id="textArea" layoutX="185.0" layoutY="41.0" prefHeight="374.0" prefWidth="407.0" />
-      <TextArea fx:id="Dev_text_area" layoutX="185.0" layoutY="481.0" prefHeight="200.0" prefWidth="407.0" />
-      <Text layoutX="361.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developers" />
-      <TextArea fx:id="Platform_text_area" layoutX="19.0" layoutY="726.0" prefHeight="172.0" prefWidth="256.0" />
-      <TextArea fx:id="Pub_text_area" layoutX="330.0" layoutY="726.0" prefHeight="172.0" prefWidth="256.0" />
-      <Text layoutX="434.0" layoutY="712.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publishers" />
-      <Text layoutX="124.0" layoutY="712.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Platforms" />
-      <Text layoutX="370.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" />
+      <TextArea fx:id="textArea" layoutX="251.0" layoutY="44.0" prefHeight="374.0" prefWidth="370.0" />
+      <TextArea fx:id="Dev_text_area" layoutX="251.0" layoutY="462.0" prefHeight="200.0" prefWidth="370.0" />
+      <Text layoutX="406.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developers" />
+      <TextArea fx:id="Platform_text_area" layoutX="14.0" layoutY="698.0" prefHeight="172.0" prefWidth="300.0" />
+      <TextArea fx:id="Pub_text_area" layoutX="322.0" layoutY="698.0" prefHeight="172.0" prefWidth="300.0" />
+      <Text layoutX="438.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publishers" />
+      <Text layoutX="145.0" layoutY="684.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Platforms" />
+      <Text layoutX="409.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" />
+      <Text layoutX="42.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <Text layoutX="35.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Platform" />
+      <Text layoutX="30.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer" />
+      <Text layoutX="33.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher" />
+      <Text layoutX="34.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My score" />
+      <Text layoutX="26.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Critics score" />
+      <Text layoutX="17.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year of Release" />
    </children>
 </Pane>

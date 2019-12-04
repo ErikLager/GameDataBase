@@ -21,9 +21,9 @@ public class Game {
 
     @Override
     public String toString() {
-        return String.format("%s Year of Release: %d \n "
+        return String.format("%s. Year of Release: %d \n "
                 + "My score: %d Critics score: %d \n Platform: %d "
-                + "Developer: %d. Publisher: %d \n", 
+                + " \n Developer: %d \n Publisher: %d \n", 
                 name,year,mScore,cScore,platformID, devId, pubId);
        // return "Game{" + "id=" + id + ", name=" + name + ", platformID=" + platformID + ", devId=" + devId + ", pubId=" + pubId + ", cScore=" + cScore + ", mScore=" + mScore + ", Year=" + Year + '}';
     }
