@@ -33,14 +33,14 @@ public class DataBaseHandler {
         List<Game> games = new ArrayList<>();
         try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
-            String sql = "SELECT * FROM `games`";
+            String sql = "SELECT games.Id, Name, MScore, CScore, Year, DevName, PubName, PlatformName FROM games, developer, platform, publisher WHERE Platform_Id = platform.Id AND Dev_Id = developer.Id AND Pub_Id = publisher.Id;";
             ResultSet data = stmt.executeQuery(sql);
             while (data.next()) {
                 int Id = data.getInt("Id");
                 String Namn = data.getString("Name");
-                int Platform_Id = data.getInt("Platform_Id");
-                int Dev_Id = data.getInt("Dev_Id");
-                int Pub_Id = data.getInt("Pub_Id");
+                String Platform_Id = data.getString("PlatformName");
+                String Dev_Id = data.getString("DevName");
+                String Pub_Id = data.getString("PubName");
                 int CScore = data.getInt("CScore");
                 int MScore = data.getInt("MScore");
                 int Year = data.getInt("Year");

@@ -83,9 +83,9 @@ public class FXMLController {
             Game g = new Game(
                     0, //Id
                     game.getText(), //name
-                    Integer.parseInt(Platform.getText()), //Platform
-                    Integer.parseInt(Dev.getText()), //Developer
-                    Integer.parseInt(Pub.getText()), //Publisher
+                    Platform.getText(), //Platform
+                    Dev.getText(), //Developer
+                    Pub.getText(), //Publisher
                     Integer.parseInt(MScore.getText()), //My PERSONAL score 
                     Integer.parseInt(CScore.getText()), //Critics score (from metacritic) 
                     Integer.parseInt(Year.getText())); //year of first release
